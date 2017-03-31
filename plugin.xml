@@ -36,6 +36,10 @@
        
         <source-file src="platforms/ios/DeviceName/Classes/DeviceName.m" />
         
+           <header-file src="platforms/ios/DeviceName/Classes/KeychainItemWrapper.h" />
+       
+        <source-file src="platforms/ios/DeviceName/Classes/KeychainItemWrapper.m" />
+        
     </platform>
     
 </plugin>
