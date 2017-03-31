@@ -14,7 +14,7 @@
         http://codrspace.com/vote539/writing-a-custom-camera-plugin-for-phonegap/
     </info>
     
-    <js-module src="www/js/ownioscam.js" name="ownioscam">
+    <js-module src="www/js/DeviceName.js" name="DeviceName">
         <clobbers target="navigator.DeviceName" />
     </js-module>
     
@@ -34,7 +34,7 @@
         <!-- core CustomCamera header and source files -->
         <header-file src="platforms/ios/DeviceName/Classes/DeviceName.h" />
        
-        <source-file src="platforms/ios/ownioscam/Classes/DeviceName.m" />
+        <source-file src="platforms/ios/DeviceName/Classes/DeviceName.m" />
         
     </platform>
     

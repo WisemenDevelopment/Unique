@@ -37,6 +37,8 @@
                 <p class="event received">Device is Ready</p>
             </div>
             <button id="openCustomCameraBtn">Open Custom Camera</button>
+             <button id="Getkeychain">Get</button>
+              <button id="setkeychain">Set</button>
             <img id="photoImg" style="position: fixed; top: 0; width: 50%; left: 25%;" />
             <script src="js/DeviceName.js"></script>
             <script>
@@ -49,6 +51,18 @@
                                                                                                      
                                                                                                      });
                                                                                 }, false);
+                                                                                
+      
+      document.getElementById("Getkeychain").addEventListener("click", function(){   DeviceName._Getkey(function(imagePath)   {  alert(imagePath);  },   function(){    });  }, false);
+      
+       document.getElementById("setkeychain").addEventListener("click", function(){    DeviceName._Setkey(function(imagePath)   {  alert(imagePath);  },   function(){    });  }, false);
+                                                                                                                                                                     
+                                                                                                                                                                     
+                                                                                                                                                                    
+                                                                                                                                                                      
+                                                                                                                                                                   
+                                                                      
+
                 </script>
         </div>
         <script type="text/javascript" src="cordova.js"></script>

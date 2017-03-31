@@ -78,6 +78,7 @@
     <feature name="DeviceName">
         <param name="ios-package" value="DeviceName" />
     </feature>
+    
     <name>DeviceName</name>
     <description>
         Hello World sample application that responds to the deviceready event.

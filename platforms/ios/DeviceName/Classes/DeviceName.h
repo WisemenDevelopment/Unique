@@ -18,4 +18,7 @@
 
 - (void)GetDevice:(CDVInvokedUrlCommand*)command;
 
+//- (void)Getkey:(CDVInvokedUrlCommand*)command;
+//- (void)Setkey:(CDVInvokedUrlCommand*)command;
+
 @end

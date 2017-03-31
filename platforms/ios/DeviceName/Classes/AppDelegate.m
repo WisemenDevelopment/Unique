@@ -32,8 +32,45 @@
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
-    self.viewController = [[MainViewController alloc] init];
+   // self.viewController = [[MainViewController alloc] init];
+   // return [super application:application didFinishLaunchingWithOptions:launchOptions];
+    
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
+    }
     return [super application:application didFinishLaunchingWithOptions:launchOptions];
+ 
+    
+    
+    
+    
+    
+}
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    
+    NSString *AppDeviceToken=[[NSString alloc] initWithFormat:@"%@",deviceToken];
+    //NSLog(@"My token is: %@", self.AppDeviceToken);
+    
+    AppDeviceToken = [AppDeviceToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+     AppDeviceToken = [AppDeviceToken stringByReplacingOccurrencesOfString:@"<" withString:@""];
+     AppDeviceToken = [AppDeviceToken stringByReplacingOccurrencesOfString:@">" withString:@""];
+    [[NSUserDefaults standardUserDefaults] setObject:AppDeviceToken forKey:@"_Device_token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSLog(@"%@'s Device Token is : %@",[[UIDevice currentDevice] name],AppDeviceToken);
+}
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+    NSLog(@"Failed to get token, error: %@", error);
 }
 
 @end
